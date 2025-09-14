@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Prompts Pack</title>
+    <meta name="description" content="Buy this awesome digital product. Instant delivery, secure payment." />
+
+    <!-- Single-file CSS -->
+    <style>
+        :root {
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --muted: #64748b;
+            --accent: #ef4b3c;
+            --accent-dark: #c73b2b;
+            --shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+            --radius: 14px;
+            --maxw: 1100px;
+            --star-color: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit
+        }
+
+        /* container */
+        .wrap {
+            max-width: var(--maxw);
+            margin: 28px auto;
+            padding: 20px;
+        }
+
+        /* top bar / nav */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 8px;
+            margin-bottom: 18px;
+            background: #000e30;
+            /* Black background */
+            color: #fff;
+            /* White text */
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .brand img {
+            height: 40px;
+            width: auto;
+            display: block
+        }
+
+        .brand .site {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #fff;
+            /* White text for site name */
+        }
+
+
+        /* NAV LINKS */
+        .nav {
+            color: #fff;
+            /* White text on black */
+            font-size: 0.95rem;
+            display: flex;
+            gap: 18px;
+            align-items: center
+        }
+
+        .nav a {
+            position: relative;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 6px 0
+        }
+
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            height: 2px;
+            width: 0;
+            background: var(--accent);
+            transition: width .22s ease
+        }
+
+        .nav a:hover::after {
+            width: 100%
+        }
+
+        .nav a:hover {
+            color: #ef4b3c;
+        }
+
+        /* main card */
+        .product-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        @media (max-width:880px) {
+            .product-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* left image */
+        .left {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.03), rgba(15, 23, 42, 0.01));
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 10px;
+            display: block;
+            box-shadow: 0 12px 40px rgba(2, 6, 23, 0.08);
+            background: #eef2f7;
+            object-fit: cover;
+        }
+
+        .thumbs {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            justify-content: center;
+        }
+
+        .thumbs img {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer
+        }
+
+        .thumbs img.active {
+            border-color: rgba(15, 23, 42, 0.06);
+            box-shadow: 0 8px 20px rgba(2, 6, 23, 0.05)
+        }
+
+        /* right detail */
+        .right {
+            padding: 28px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 18px
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.95rem
+        }
+
+        .title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 6px 0
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin-bottom: 8px
+        }
+
+        .price {
+            font-size: 2.2rem;
+            color: #0b1220;
+            font-weight: 800
+        }
+
+        .price small {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 600;
+            margin-left: 10px
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+            margin: 8px 0;
+            border-radius: 2px
+        }
+
+        /* rating + buy area */
+        .buy-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--star-color);
+            font-weight: 700
+        }
+
+        .rating small {
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        /* CTA full button */
+        .cta {
+            display: inline-block;
+            background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+            color: white;
+            padding: 14px 34px;
+            border-radius: 999px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            border: none;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(239, 75, 60, 0.18), inset 0 -6px 10px rgba(0, 0, 0, 0.08);
+            transition: transform .12s ease, box-shadow .12s ease;
+            cursor: pointer;
+        }
+
+        .cta:active {
+            transform: translateY(1px)
+        }
+
+        /* stronger hover: scale + shadow */
+        .cta:hover {
+            box-shadow: 0 18px 48px rgba(239, 75, 60, 0.25);
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: var(--muted)
+        }
+
+        /* description */
+        .section {
+            margin-top: 20px;
+            padding: 22px 0
+        }
+
+        .section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px
+        }
+
+        .description {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        /* reviews */
+        .reviews {
+            margin-top: 24px
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+            margin-top: 12px
+        }
+
+        .review {
+            background: #fff;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.04);
+            min-height: 120px
+        }
+
+        .review .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: #eef2f7;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px
+        }
+
+        .review p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-top: 10px
+        }
+
+        .review .stars {
+            color: var(--star-color);
+            font-size: 1rem;
+            margin-top: 8px;
+            font-weight: 700
+        }
+
+        /* review form */
+        .review-form {
+            margin-top: 20px;
+            background: #fff;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: var(--shadow)
+        }
+
+        .review-form label {
+            display: block;
+            font-weight: 600;
+            margin-top: 8px;
+            color: #0f172a
+        }
+
+        .review-form input,
+        .review-form textarea,
+        .review-form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #e6eef6;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .review-form textarea {
+            min-height: 90px;
+            resize: vertical
+        }
+
+        .review-form .submit {
+            margin-top: 12px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .12s, box-shadow .12s;
+        }
+
+        .review-form .submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08)
+        }
+
+        /* footer */
+
+        footer {
+            background: #000e30;
+            /* black background */
+            color: #fff;
+            /* white text */
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ef4b3c;
+            /* accent color for links */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+            /* white on hover */
+        }
+
+
+        /* small helpers */
+        .small-muted {
+            font-size: 0.95rem;
+            color: var(--muted)
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        /* responsive tweaks */
+        @media (max-width:520px) {
+            .title {
+                font-size: 1.6rem
+            }
+
+            .price {
+                font-size: 1.6rem
+            }
+
+            .cta {
+                padding: 12px 22px;
+                font-size: 1.05rem
+            }
+
+            .wrap {
+                padding: 12px
+            }
+
+            .review-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <!-- topbar -->
+        <div class="topbar">
+            <div class="brand">
+                <!-- If you have logo image, replace src with your file (small size used by CSS). -->
+                <img src="logo.png" alt="logo" />
+            </div>
+
+            <!-- replaced plain text with real links so hover works -->
+            <div class="nav" role="navigation" aria-label="Main">
+                <a href="index.html" id="navHome">Home</a>
+                <a href="#">Policy</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+
+        <!-- product card -->
+        <article class="product-card" aria-labelledby="product-title">
+
+            <!-- left: product image + thumbs -->
+            <div class="left">
+                <div style="max-width:520px;width:100%">
+                    <!-- main image (replace src with your product file) -->
+                    <img id="mainImage" class="hero-image" src="product2.png" alt="Product image">
+
+                    <!-- thumbs -->
+                    <div class="thumbs" aria-hidden="true">
+                        <img class="active" src="product2.png" data-src="product2.png" alt="thumb1">
+                        <img src="product2.1.png" data-src="product2.1.png" alt="thumb2">
+                    </div>
+                </div>
+            </div>
+
+            <!-- right: details -->
+            <div class="right">
+                <div>
+                    <div class="meta">GrafiNest</div>
+                    <h1 id="product-title" class="title">Ultimate AI Prompt Pack</h1>
+                    <div class="subtitle">1000+ Detailed Prompts for Business, Blogging, Marketing, Design, Writing &
+                        More.</div>
+
+                    <div class="flex" style="margin-top:6px;">
+                        <div class="price">₹499<small>/ single license</small></div>
+                    </div>
+
+                    <div class="divider" role="separator"></div>
+
+                    <div class="buy-row">
+                        <div class="rating" aria-hidden="true">
+                            <!-- simple stars (you can replace with SVG icons if you like) -->
+                            <span style="font-size:1.1rem;">★ ★ ★ ★ ☆</span>
+                            <small class="small-muted">4.4 (248)</small>
+                        </div>
+
+                        <div class="note small-muted">Instant download • Secure checkout</div>
+                    </div>
+                    <br><br><br>
+                    <!-- FULL BUTTON (entire pill is clickable) -->
+                    <a href="#" id="buyBtn" class="cta" role="button" aria-pressed="false">
+                        Buy
+                    </a>
+
+                </div>
+
+                <!-- small helpful info -->
+                <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+                    <div class="small-muted">Delivered as ZIP / PDF • License included</div>
+                </div>
+
+            </div>
+        </article>
+
+        <!-- description section -->
+        <section class="section">
+            <h3>Description</h3>
+            <div class="description">
+                <p><strong></strong> Unlock the full potential of AI with 1000+ detailed prompts covering every area of
+                    life and business.
+                    <br><br>
+                    This book is your ultimate guide to mastering the art of prompting. Whether you’re an entrepreneur
+                    building a business, a content creator looking for fresh ideas, a student wanting smarter study
+                    methods, or a designer crafting visuals, you’ll find ready-to-use prompts to level up your work.
+                    <br> <br>
+                    Inside this book, you’ll discover:
+                </p>
+                <p style="margin-top:10px;">•Business & Marketing – strategies, branding, and growth. <br>•Content &
+                    Blogging – SEO, articles, and storytelling.<br>•E-commerce & Design – product ideas, ads, and
+                    visuals.<br>•Education & Writing – study help, stories, and scripts.
+                    <br>•Tech & Fun – coding, quizzes, and entertainment.
+                </p>
+                <p style="margin-top:10px;">
+                    <b>Why this book?</b>
+                    <br>
+                    Instead of wasting time struggling with vague inputs, you get proven, detailed prompts ready to
+                    deliver results instantly. Each prompt is designed to save time, enhance creativity, and maximize
+                    AI’s potential.
+                </p>
+
+                <p style="margin-top:10px;">
+                    Whether you’re a beginner or an advanced AI user, this book is your shortcut to smarter results.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- reviews -->
+        <section class="section reviews" id="reviewsSection">
+            <h3>Reviews</h3>
+            <div class="review-grid" id="reviewGrid" aria-live="polite">
+
+                <!-- Added several example reviews with stars -->
+                <div class="review" data-rating="5">
+                    <div style="display:flex;align-items:center">
+                        <div class="avatar" aria-hidden="true"></div>
+                        <div>
+                            <strong>Aarav</strong><br><small class="small-muted">2 days ago</small>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p>"Fantastic templates — saved me so much time. Highly recommended!"</p>
+                </div>
+
+                <div class="review" data-rating="5">
+                    <div style="display:flex;align-items:center">
+                        <div class="avatar" aria-hidden="true"></div>
+                        <div>
+                            <strong>Sana</strong><br><small class="small-muted">4 days ago</small>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p>"Excellent quality and very easy to use. Great customer support."</p>
+                </div>
+
+                <div class="review" data-rating="4">
+                    <div style="display:flex;align-items:center">
+                        <div class="avatar" aria-hidden="true"></div>
+                        <div>
+                            <strong>Riya</strong><br><small class="small-muted">5 days ago</small>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★☆</div>
+                    <p>“Great product — saved me hours of work. Highly recommend!”</p>
+                </div>
+
+                <div class="review" data-rating="4">
+                    <div style="display:flex;align-items:center">
+                        <div class="avatar" aria-hidden="true"></div>
+                        <div>
+                            <strong>John</strong><br><small class="small-muted">2 weeks ago</small>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★☆</div>
+                    <p>“High quality and easy to use. Support was quick to respond.”</p>
+                </div>
+
+                <div class="review" data-rating="5">
+                    <div style="display:flex;align-items:center">
+                        <div class="avatar" aria-hidden="true"></div>
+                        <div>
+                            <strong>Aisha</strong><br><small class="small-muted">1 month ago</small>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p>“Exactly what I needed. Recommended for freelancers.”</p>
+                </div>
+
+                <div class="review" data-rating="4">
+                    <div style="display:flex;align-items:center">
+                        <div class="avatar" aria-hidden="true"></div>
+                        <div>
+                            <strong>Mark</strong><br><small class="small-muted">3 months ago</small>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★☆</div>
+                    <p>“Good value for money and fast delivery.”</p>
+                </div>
+
+                <div class="review" data-rating="5">
+                    <div style="display:flex;align-items:center">
+                        <div class="avatar" aria-hidden="true"></div>
+                        <div>
+                            <strong>Priya</strong><br><small class="small-muted">3 weeks ago</small>
+                        </div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p>"Seamless experience — the files were organized and easy to edit."</p>
+                </div>
+
+                <div class="review" data-rating="3">
+                    <div style="display:flex;align-items:center">
+                        <div class="avatar" aria-hidden="true"></div>
+                        <div>
+                            <strong>Rohit</strong><br><small class="small-muted">1 month ago</small>
+                        </div>
+                    </div>
+                    <div class="stars">★★★☆☆</div>
+                    <p>"Good product but could use more customization options."</p>
+                </div>
+
+            </div>
+
+            <!-- review form -->
+            <div class="review-form" aria-label="Add a review">
+                <label for="reviewName">Your name</label>
+                <input id="reviewName" type="text" placeholder="e.g. Aman" />
+
+                <label for="reviewRating">Rating</label>
+                <select id="reviewRating" aria-label="Rating">
+                    <option value="5">5 — Excellent</option>
+                    <option value="4">4 — Very good</option>
+                    <option value="3">3 — Good</option>
+                    <option value="2">2 — Fair</option>
+                    <option value="1">1 — Poor</option>
+                </select>
+
+                <label for="reviewText">Your review</label>
+                <textarea id="reviewText" placeholder="Write your review..."></textarea>
+
+                <button class="submit" id="addReview">Submit review</button>
+                <div id="reviewMsg" style="margin-top:8px;color:var(--muted);font-size:0.95rem"></div>
+            </div>
+        </section>
+
+        <footer>
+            • Terms &nbsp; &nbsp; • Privacy
+            <br><br>
+            © <span id="year"></span> GrafiNest
+        </footer>
+
+    </div>
+
+    <!-- Single-file JS -->
+    <script>
+        // set year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // thumbnail click -> swap main image
+        document.querySelectorAll('.thumbs img').forEach(img => {
+            img.addEventListener('click', () => {
+                document.querySelectorAll('.thumbs img').forEach(i => i.classList.remove('active'));
+                img.classList.add('active');
+                const src = img.getAttribute('data-src') || img.src;
+                document.getElementById('mainImage').src = src;
+            });
+        });
+
+        // Buy button: placeholder behavior
+        document.getElementById('buyBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            alert('Buy flow will be integrated here (PayPal / Stripe). Replace this handler with your payment code.');
+        });
+
+        // Accessibility: keyboard focus for buy button
+        const buyBtn = document.getElementById('buyBtn');
+        buyBtn.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); buyBtn.click(); }
+        });
+
+        /* -------------------------
+           Reviews + localStorage
+           ------------------------- */
+
+        const STORAGE_KEY = 'product_reviews_v1';
+
+        // existingReviewsFromDOM reads existing static reviews (so they are not duplicated in storage on first load)
+        function existingReviewsFromDOM() {
+            const nodes = Array.from(document.querySelectorAll('#reviewGrid .review'));
+            return nodes.map(node => {
+                // try read name/time/text/rating from DOM
+                const nameNode = node.querySelector('strong');
+                const timeNode = node.querySelector('small');
+                const textNode = node.querySelector('p');
+                const ratingAttr = node.getAttribute('data-rating');
+                const starsNode = node.querySelector('.stars');
+                const rating = ratingAttr ? Number(ratingAttr) :
+                    (starsNode ? (starsNode.textContent.replace(/[^★]/g, '').length) : 5);
+                return {
+                    name: nameNode ? nameNode.textContent.trim() : 'Customer',
+                    rating: rating || 5,
+                    text: textNode ? textNode.textContent.trim() : '',
+                    time: timeNode ? timeNode.textContent.trim() : '',
+                    source: 'dom' // mark source so we can avoid duplicate saving
+                };
+            });
+        }
+
+        // render a review object into the grid (prepended)
+        function renderReview(reviewObj, prepend = true) {
+            const review = document.createElement('div');
+            review.className = 'review';
+
+            // human-friendly time display. If reviewObj.time is ISO, format; if "Just now" or like, use it.
+            const timeText = reviewObj.time && reviewObj.time.includes('Just') ? reviewObj.time : (reviewObj.time || formatRelativeTime(reviewObj.createdAt));
+
+            const stars = createStarsText(reviewObj.rating);
+
+            review.innerHTML = `
+      <div style="display:flex;align-items:center">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <strong>${escapeHtml(reviewObj.name)}</strong><br><small class="small-muted">${escapeHtml(timeText)}</small>
+        </div>
+      </div>
+      <div class="stars">${stars}</div>
+      <p>${escapeHtml(reviewObj.text)}</p>
+    `;
+            const grid = document.getElementById('reviewGrid');
+            if (prepend) grid.prepend(review); else grid.appendChild(review);
+        }
+
+        function createStarsText(rating) {
+            const r = Math.max(0, Math.min(5, Number(rating) || 0));
+            return '★'.repeat(r) + '☆'.repeat(5 - r);
+        }
+
+        // basic HTML escape
+        function escapeHtml(s) {
+            if (!s) return '';
+            return s.replace(/[&<>"']/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]; });
+        }
+
+        // format ISO timestamp (or ms) to "X minutes/hours/days ago"
+        function formatRelativeTime(ts) {
+            if (!ts) return 'Just now';
+            const t = (typeof ts === 'number') ? ts : Date.parse(ts || '');
+            if (isNaN(t)) return ts;
+            const diff = Date.now() - t;
+            const sec = Math.floor(diff / 1000);
+            if (sec < 60) return 'Just now';
+            const min = Math.floor(sec / 60);
+            if (min < 60) return `${min} min${min > 1 ? 's' : ''} ago`;
+            const hrs = Math.floor(min / 60);
+            if (hrs < 24) return `${hrs} hour${hrs > 1 ? 's' : ''} ago`;
+            const days = Math.floor(hrs / 24);
+            return `${days} day${days > 1 ? 's' : ''} ago`;
+        }
+
+        // load saved reviews from localStorage, merge with DOM existing reviews (so we don't duplicate)
+        function loadReviews() {
+            let saved = [];
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) saved = JSON.parse(raw);
+            } catch (e) { saved = []; }
+
+            // clear current grid and re-render: start with static DOM reviews (so original ones remain in order)
+            const grid = document.getElementById('reviewGrid');
+            const originalNodes = Array.from(grid.querySelectorAll('.review'));
+            // We'll preserve the original static reviews defined in HTML, but to avoid duplication we will re-render them.
+            grid.innerHTML = '';
+
+            const original = existingReviewsFromDOM();
+            original.forEach(r => renderReview(r, false)); // append in same order
+
+            // render saved reviews (saved ones should be displayed before original, most recent first)
+            if (Array.isArray(saved) && saved.length) {
+                // sort newest first
+                saved.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+                saved.forEach(r => renderReview(r, true));
+            }
+        }
+
+        // Save a new review into localStorage
+        function saveReviewToStorage(obj) {
+            let list = [];
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) list = JSON.parse(raw);
+            } catch (e) { list = []; }
+            list.push(obj);
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+            } catch (e) { console.warn('Could not save review', e); }
+        }
+
+        // handle new review submission
+        document.getElementById('addReview').addEventListener('click', function () {
+            const name = document.getElementById('reviewName').value.trim();
+            const text = document.getElementById('reviewText').value.trim();
+            const rating = parseInt(document.getElementById('reviewRating').value, 10) || 5;
+            const msg = document.getElementById('reviewMsg');
+
+            if (!name || !text) {
+                msg.style.color = '#c02424';
+                msg.textContent = 'Please enter your name and review text.';
+                return;
+            }
+
+            const createdAt = Date.now();
+            const reviewObj = {
+                name,
+                text,
+                rating,
+                createdAt
+            };
+
+            // render immediately and save
+            renderReview(reviewObj, true);
+            saveReviewToStorage(reviewObj);
+
+            // clear form
+            document.getElementById('reviewName').value = '';
+            document.getElementById('reviewText').value = '';
+            document.getElementById('reviewRating').value = '5';
+
+            msg.style.color = 'green';
+            msg.textContent = 'Thank you — your review was added.';
+            setTimeout(() => msg.textContent = '', 4000);
+        });
+
+        // initialize on load
+        document.addEventListener('DOMContentLoaded', function () {
+            loadReviews();
+        });
+
+    </script>
+</body>
+
+</html>

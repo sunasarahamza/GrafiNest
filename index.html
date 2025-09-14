@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Product Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset + base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0rem 2rem;
+            background: #000e30;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0ea5e9;
+        }
+
+        .logo {
+            height: 100px;
+            /* size chhota karne ke liye height change karo */
+            width: auto;
+            /* proportion maintain karega */
+        }
+
+
+        nav a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #8c969b;
+        }
+
+        /* Hero */
+        .hero {
+            background: url(web\ home\ png.png) no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            /* black with transparency */
+            z-index: 1;
+        }
+
+        .hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+
+        .btn {
+            display: inline-block;
+            /* pura box clickable ho jayega */
+            background: #ff4b2b;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #e63e1a;
+        }
+
+
+        /* Products */
+        .products {
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .product img {
+            width: 200px;
+            margin: 0 auto 1rem;
+        }
+
+        .product h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .product p {
+            margin-bottom: 0.8rem;
+            color: #475569;
+        }
+
+        .product button {
+            background: #ef4444;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .product button:hover {
+            background: #dc2626;
+        }
+
+        /* Features */
+        .features {
+            padding: 3rem 2rem;
+            background: #f1f5f9;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .feature {
+            background: #fff;
+            padding: 1.2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature img {
+            width: 40px;
+            margin-bottom: 0.6rem;
+        }
+
+        /* Custom design */
+        .custom {
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .custom-box {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .custom-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .custom-box ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .custom-box li {
+            margin: 0.4rem 0;
+        }
+
+        .custom-box button {
+            background: #0ea5e9;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .custom-box button:hover {
+            background: #0284c7;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 3rem 2rem;
+            background: #f9fafb;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            max-width: 700px;
+            margin: 0.8rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            display: none;
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: 0.5rem;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ef4b3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <div><img src="logo.png" alt="logo" class="logo"></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#products">Products</a>
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Discover Our Digital Products</h1>
+        <p>High quality resources at the best prices. Instant access worldwide.</p>
+        <button> <a href="product1.html" class="btn">See more</a>
+        </button>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="product1.png" alt="Product">
+                <h3>Digital Time Mastery</h3>
+                <p>₹499</p>
+                <button><a href="product1.html">Buy Now</a></button>
+            </div>
+            <div class="product">
+                <img src="product2.png" alt="Product">
+                <h3>Prompt Pack</h3>
+                <p>₹699</p>
+                <button><a href="product2.html">Buy Now</a></button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <h2>What We Give</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <i class="fa-solid fa-truck-fast fa-2x"></i>
+                <p>Fast Delivery</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-shield fa-2x"></i>
+                <p>Secure Payment</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-headset fa-2x"></i>
+                <p>24/7 Support</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-lightbulb fa-2x"></i>
+                <p>Creative Resources</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-dollar-sign fa-2x"></i>
+                <p>Affordable Price</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Design -->
+    <section class="custom">
+        <h2>Custom Your Design</h2>
+        <div class="custom-box">
+            <h3>Features</h3>
+            <ul>
+                <li>✔ Tailored to your needs</li>
+                <li>✔ Professional design</li>
+                <li>✔ Quick turnaround</li>
+            </ul>
+            <button>Order Now</button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <h2>FAQs</h2>
+        <div class="faq-item">
+            <h4>1. How do I receive my product?</h4>
+            <p>Once payment is complete, you’ll get instant access via email download link.</p>
+        </div>
+        <div class="faq-item">
+            <h4>2. What payment methods are supported?</h4>
+            <p>We support Stripe, PayPal, and major cards worldwide.</p>
+        </div>
+        <div class="faq-item">
+            <h4>3. Can I get a refund?</h4>
+            <p>Yes, we offer a 7-day money-back guarantee if not satisfied.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Your Brand. All Rights Reserved.</p>
+        <p>
+            <a href="https://wa.me/919372233835" target="_blank">
+                📞 Contact Us on WhatsApp
+            </a>
+        </p>
+    </footer>
+
+    <script>
+        // FAQ toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => item.classList.toggle('active'));
+        });
+    </script>
+</body>
+
+</html>
