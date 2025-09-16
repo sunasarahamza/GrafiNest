@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Your Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #000;
+            color: #fff;
+            padding: 6px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ef4b3c;
+        }
+
+        /* About Section */
+        .about-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #000;
+        }
+
+        .about-container p {
+            margin: 15px 0;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .highlight-services {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f1f1f1;
+            border-left: 5px solid #ef4b3c;
+            border-radius: 5px;
+        }
+
+        .highlight-services h2 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: #ef4b3c;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .service-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item i {
+            font-size: 2rem;
+            color: #ef4b3c;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ef4b3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <!-- Replace with your logo image -->
+            <img src="logo.png" alt="Your Brand Logo">
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="policy.html">Policy</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- About Us Content -->
+    <section class="about-container">
+        <h1>About Us</h1>
+        <p>Welcome to <strong>Your Brand</strong>, your one-stop destination for high-quality <strong>digital
+                products</strong> and custom design services. We specialize in creating professional designs tailored to
+            your unique needs, helping individuals, authors, and businesses present their work in the most creative way
+            possible.</p>
+
+        <p>From ready-to-use digital assets to fully customized designs, our goal is to provide you with modern,
+            impactful solutions that save time and leave a lasting impression.</p>
+
+        <div class="highlight-services">
+            <h2>Our Services</h2>
+            <div class="service-list">
+                <div class="service-item">
+                    <i class="fa-solid fa-book"></i>
+                    <p>Ebooks & Book Interiors</p>
+                </div>
+                <div class="service-item">
+                    <i class="fa-solid fa-image"></i>
+                    <p>Book Covers & 3D Mockups</p>
+                </div>
+                <div class="service-item">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <p>Logos & Branding</p>
+                </div>
+                <div class="service-item">
+                    <i class="fa-solid fa-paintbrush"></i>
+                    <p>Posters & Banners</p>
+                </div>
+                <div class="service-item">
+                    <i class="fa-brands fa-youtube"></i>
+                    <p>YouTube Thumbnails</p>
+                </div>
+                <div class="service-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <p>Instagram Ads & Posts</p>
+                </div>
+                <div class="service-item">
+                    <i class="fa-solid fa-chalkboard"></i>
+                    <p>Presentation Design</p>
+                </div>
+            </div>
+        </div>
+
+        <p>Whether you’re an author looking for a professional book interior, a business needing promotional materials,
+            or a content creator wanting eye-catching thumbnails and posts — we’ve got you covered.</p>
+
+        <p><strong>Your ideas + Our creativity = Perfect digital solutions!</strong></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+         <p>
+            <a href="policy.html">Privacy policy</a>
+            <br>
+            <a href="term.html">Terms & Conditions</a>
+            <br>
+            <a href="contact.html">Contact Us</a>
+        </p>
+        <hr>
+        <p>© 2025 GrafiNest. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

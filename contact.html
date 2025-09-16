@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact Us — Your Brand</title>
+    <meta name="description" content="Contact us for product help, payments, custom design orders." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --muted: #64748b;
+            --accent: #ef4b3c;
+            --accent-dark: #c73b2b;
+            --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+            --radius: 12px;
+            --maxw: 1000px;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        header {
+            background: #000;
+            color: #fff;
+            padding: 6px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto
+        }
+
+        .site-title {
+            font-weight: 700;
+            font-size: 1.05rem
+        }
+
+        .nav a {
+            color: rgba(255, 255, 255, 0.9);
+            margin-left: 18px;
+            font-weight: 600;
+            position: relative
+        }
+
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            height: 2px;
+            width: 0;
+            background: var(--accent);
+            transition: width .22s
+        }
+
+        .nav a:hover::after {
+            width: 100%
+        }
+
+        .nav a:hover {
+            color: #fff
+        }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 36px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px;
+        }
+
+        .contact-head {
+            text-align: center;
+            margin-bottom: 18px
+        }
+
+        .contact-head h1 {
+            font-size: 1.9rem;
+            margin-bottom: 6px
+        }
+
+        .contact-head p {
+            color: var(--muted)
+        }
+
+        form .row {
+            display: flex;
+            gap: 16px
+        }
+
+        @media(max-width:720px) {
+            form .row {
+                flex-direction: column
+            }
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0f172a
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid #e6edf3;
+            font-size: 1rem;
+            background: #fff;
+            color: #0f172a;
+            outline: none;
+            transition: box-shadow .12s, border-color .12s;
+        }
+
+        input:focus,
+        textarea:focus {
+            box-shadow: 0 6px 18px rgba(14, 165, 233, 0.08);
+            border-color: rgba(14, 165, 233, 0.6)
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px
+        }
+
+        .checkbox input {
+            width: auto
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 16px;
+            transition: transform .12s, box-shadow .12s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12)
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 0.95rem
+        }
+
+        .success {
+            background: #e6ffef;
+            border-left: 4px solid #06ad5b;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            color: #064e2a
+        }
+
+        .error {
+            background: #fff4f4;
+            border-left: 4px solid #f43f5e;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            color: #7f1d1d
+        }
+
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 36px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Your Brand Logo" />
+        </div>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="policy.html">Policy</a>
+            <a href="about.html">About Us</a>        
+        </nav>
+    </header>
+
+    <main class="wrap">
+        <div class="card" role="region" aria-labelledby="contactTitle">
+            <div class="contact-head">
+                <h1 id="contactTitle">Contact Us</h1>
+                <p class="muted">Tell us what you need — payment help, product questions, or request a custom design.
+                </p>
+            </div>
+
+            <form id="contact-form">
+                <div class="row">
+                    <div style="flex:1">
+                        <label for="name">Your name</label>
+                        <input id="name" name="name" type="text" placeholder="e.g. Aman" required>
+                    </div>
+                    <div style="flex:1">
+                        <label for="email">Your email</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div style="margin-top:14px">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+
+                <div style="margin-top:14px">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+                </div>
+
+                <input type="hidden" name="time" id="timeField">
+
+                <div class="checkbox">
+                    <input type="checkbox" id="accept" name="accept" required>
+                    <label for="accept" class="muted">I accept <a href="terms.html" target="_blank">Terms &
+                            Conditions</a> and <a href="privacy.html" target="_blank">Legal & Privacy</a></label>
+                </div>
+
+                <div id="feedback" aria-live="polite" style="margin-top:10px"></div>
+
+                <button type="submit" class="btn" id="sendBtn">Send</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            <a href="policy.html">Privacy policy</a>
+            <br>
+            <a href="about.html">About Us</a>
+            <br>
+            <a href="term.html">Terms & Conditions</a>
+        </p>
+        <hr>
+        <p>© 2025 GrafiNest. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Your keys
+        const EMAILJS_PUBLIC_KEY = "J5uf7IOnZQHhK1hTY";
+        const EMAILJS_SERVICE_ID = "service_y7zc0jm";
+        const EMAILJS_TEMPLATE_ID = "template_1rjwoei";
+
+        // Init EmailJS
+        (function () {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+        })();
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const form = document.getElementById('contact-form');
+        const feedback = document.getElementById('feedback');
+        const sendBtn = document.getElementById('sendBtn');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const subject = form.subject.value;
+            const message = form.message.value.trim();
+            const accept = form.accept.checked;
+
+            if (!name || !email || !message || !accept) {
+                showError('Please complete all required fields and accept the terms.');
+                return;
+            }
+
+            document.getElementById('timeField').value = new Date().toLocaleString();
+
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+
+            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+                .then(function () {
+                    showSuccess('Message sent — thank you! We will reply as soon as possible.');
+                    form.reset();
+                }, function (err) {
+                    console.error('EmailJS error:', err);
+                    showError('Failed to send message. Please try again later.');
+                })
+                .finally(() => {
+                    sendBtn.disabled = false;
+                    sendBtn.textContent = 'Send';
+                });
+        });
+
+        function showSuccess(text) {
+            feedback.innerHTML = '<div class="success" role="status">' + escapeHtml(text) + '</div>';
+            setTimeout(() => feedback.innerHTML = '', 7000);
+        }
+        function showError(text) {
+            feedback.innerHTML = '<div class="error" role="alert">' + escapeHtml(text) + '</div>';
+            setTimeout(() => feedback.innerHTML = '', 7000);
+        }
+        function escapeHtml(s) {
+            if (!s) return '';
+            return s.replace(/[&<>"']/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]; });
+        }
+    </script>
+</body>
+
+</html>
